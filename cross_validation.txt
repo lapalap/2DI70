@@ -1,0 +1,13 @@
+from random import randrange
+
+def cross_validation(dataset, folds=3):
+    dataset_split = np.array([])
+    dataset_copy = np.array(dataset)
+    fold_size = int(len(dataset) / folds)
+    for i in range(folds):
+        fold = np.array([])
+        while len(fold) < fold_size:
+            index = randrange(len(dataset_copy))
+            fold = np.concatenate((fold,np.delete(dataset_copy, index, None)))
+        dataset_split = np.concatenate((dataset_split, fold))
+    return dataset_split
