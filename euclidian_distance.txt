@@ -1,0 +1,3 @@
+def distance(A, B, metric = "euclidean"):
+    if metric == "euclidean":
+        return np.sqrt(np.square(A - B)) #amde formula more explicit to show that we understand how it is calculated
